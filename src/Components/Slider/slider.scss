@@ -1,0 +1,14 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  input {
+    width: 50%;
+  }
+}

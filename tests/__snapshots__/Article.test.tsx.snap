@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Renders Article Component 1`] = `
+<div
+  className="article"
+  onClick={[Function]}
+>
+  <div
+    className="thumb"
+  >
+    <Component
+      id={2}
+      noShadow={true}
+      size={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+  </div>
+  <div
+    className="text"
+  >
+    <p>
+      Hello World
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Renderds like a boss 1`] = `
+<Component
+  size={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+  url="https://url-of-your-server.com/example/json"
+>
+  <div
+    className="avatar  shadow"
+    style={
+      Object {
+        "height": 50,
+        "width": 50,
+      }
+    }
+  >
+    <div
+      className="loader"
+    />
+  </div>
+</Component>
+`;

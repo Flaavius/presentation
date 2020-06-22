@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags Renders with appropriate tags 1`] = `
+<div
+  className="tags"
+>
+  <a
+    href="http://this"
+    key="0"
+  >
+     
+    This
+     
+  </a>
+  <a
+    href="http://is"
+    key="1"
+  >
+     
+    is
+     
+  </a>
+  <a
+    href="http://a"
+    key="2"
+  >
+     
+    a
+     
+  </a>
+  <a
+    href="http://test"
+    key="3"
+  >
+     
+    test
+     
+  </a>
+</div>
+`;
+
+exports[`Tags passes props correctly 1`] = `
+Object {
+  "children": Array [
+    <a
+      href="http://this"
+    >
+       
+      This
+       
+    </a>,
+    <a
+      href="http://is"
+    >
+       
+      is
+       
+    </a>,
+    <a
+      href="http://a"
+    >
+       
+      a
+       
+    </a>,
+    <a
+      href="http://test"
+    >
+       
+      test
+       
+    </a>,
+  ],
+  "className": "tags",
+}
+`;
