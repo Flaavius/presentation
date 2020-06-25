@@ -1,13 +1,16 @@
 import * as d3 from "d3";
 
+const chartWidth = 550;
+
 export const buildChart = ({
   selector = "",
   data = {},
+  onHover = (data: any) => {},
 }) => {
   if (!selector) return;
 
      // set the dimensions and margins of the graph
-  const width = 550;
+  const width = chartWidth;
   const height = 450;
   const margin = 60;
 
@@ -49,6 +52,17 @@ export const buildChart = ({
      .data(data_ready)
      .enter()
      .append("path")
+     .on('mouseover', function(data) {
+       d3.select(this)
+       .attr("fill", "#de411b")
+       .style("opacity", 1);
+       onHover(data.data.key);
+     })
+     .on("mouseout", function(d) {
+      d3.select(this)
+      .attr("fill", color(d.data.key))
+      .style("opacity", .7);
+     })
      .attr("d", arc)
      .attr("fill", function(d) { return(color(d.data.key)); })
      .attr("stroke", "white")
@@ -90,4 +104,86 @@ export const buildChart = ({
          const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
          return (midangle < Math.PI ? "start" : "end");
      });
+};
+
+const data = [
+  {
+    name: "Java",
+    value: 20,
+  },
+  {
+    name: "React",
+    value: 20,
+  },
+  {
+    name: "PostgresSQL",
+    value: 20,
+  },
+  {
+    name: "NodeJS",
+    value: 20,
+  },
+  {
+    name: "JUnit",
+    value: 30,
+  },
+  {
+    name: "AWS",
+    value: 20,
+  },
+  {
+    name: "NightWatch",
+    value: 20,
+  },
+];
+
+export const buildBarChart = ({
+  selector = "",
+}) => {
+  if (!selector) return;
+
+  const width = 550;
+  const paddingLeft = 100;
+
+  const scale = d3.scaleLinear()
+  .domain([0, 100])
+  .range([0, 400]);
+
+  const transition = d3.transition().duration(600).ease(d3.easeElasticOut);
+
+  const container = d3
+    .select(selector)
+    .html("")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", 250);
+
+  const xAxis = d3.axisBottom(scale).scale(scale);
+
+  container.append("g").attr("transform", `translate(${paddingLeft}, 230)`).call(xAxis);
+
+  container
+    .append("g")
+    .attr("transform", `translate(${paddingLeft}, 200)`)
+    .selectAll("rect")
+    .data(data)
+    .join("rect")
+    .attr("height", 26)
+    .style("fill", "#de411b")
+    .attr("x", 0)
+    .attr("y", (d, i) => i * -30)
+    .transition(transition)
+    .attr("width", () => Math.round(Math.random() * 400));
+
+  container
+    .append("g")
+    .attr("transform", "translate(0, 230)")
+    .selectAll("text")
+    .data(data)
+    .join("text")
+    .text((d) => d.name)
+    .attr("x", 10)
+    .attr("y", (d, i) => (i * -30) - 13)
+    .attr("fill", "#de411b");
+
 };
