@@ -256,8 +256,8 @@ export const buildGrowthChart = ({
     },
   ];
 
-  const width = 650;
-  const paddingLeft = 100;
+  const width = 450;
+  const paddingLeft = 40;
 
   const scaleX = d3.scaleLinear()
   .domain([2004, 2025])
@@ -297,7 +297,7 @@ export const buildGrowthChart = ({
   .append("path")
   // @ts-ignore
   .attr("d", line(lineData))
-  .attr("stroke", "black")
+  .attr("stroke", "#de411b")
   .attr("stroke-width", 2)
   .attr("fill", "none");
 

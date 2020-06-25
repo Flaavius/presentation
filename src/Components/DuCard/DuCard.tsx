@@ -59,7 +59,6 @@ export class DuCard extends Component<any, any> {
           <h3> {this.state.key ? "Most Used Technologies" : null }  </h3>
           <div id="bar-chart" />
         </div>
-        
       </div>
     );
   }
