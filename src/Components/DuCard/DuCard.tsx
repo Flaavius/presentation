@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import {
   buildChart,
   buildBarChart,
+  buildGrowthChart,
 } from "./d3Util";
 
 import style from "./card.scss";
@@ -15,6 +16,9 @@ export class DuCard extends Component<any, any> {
   };
 
   componentDidMount() {
+    buildGrowthChart({
+      selector: "#growth-chart",
+    });
     buildChart(
     {
       selector: "#chart",
@@ -42,6 +46,10 @@ export class DuCard extends Component<any, any> {
       <div className={style["wrapper"]} >
         <button className={style["close-button"]} onClick={onClose}> X </button>
         <h1> {data.name} </h1>
+        <div className={style["growth-info"]}>
+          <h3>No. of Employees</h3>
+          <div id="growth-chart" />
+        </div>
         <div className={style["chart"]}>
           <h2> Industry </h2>
           <div id="chart"  />
@@ -51,6 +59,7 @@ export class DuCard extends Component<any, any> {
           <h3> {this.state.key ? "Most Used Technologies" : null }  </h3>
           <div id="bar-chart" />
         </div>
+        
       </div>
     );
   }
