@@ -2,19 +2,12 @@ import React from "react";
 
 import style from "./slider.scss";
 
-export const Slider = ({ onChange, value }) => {
+export const Slider = ({ onClick, onHover, dus }) => {
   return (
     <div className={style["wrapper"]} >
-      <input
-        min={2007}
-        max={2020}
-        step={1}
-        value={value}
-        type="range"
-        name=""
-        id=""
-        onChange={onChange}
-      />
+      <ul>
+        {dus.map((du) => <li onClick={() => onClick(du)} onMouseOver={() => onHover(du)} key={du.name}> {du.name} </li>)}
+      </ul>
     </div>
   );
 };

@@ -1,20 +1,32 @@
 import React, { SFC, useState } from "react";
 import { render } from "react-dom";
 
-import { HashRouter, Route } from "react-router-dom";
-
 import { MainPage } from "./Containers/MainPage/MainPage";
+import { DuCard } from "./Components/DuCard/DuCard";
+
+import { dus } from "./data/dus";
 
 import "./styles/main.scss";
 import { Slider } from "./Components/Slider/Slider";
 
 export const App: SFC<{}> = () => {
-  const [ year, setYear ] = useState(2007);
+  const [ du, setFocusedDu ] = useState({ lat: 0, lng: 0 });
+  const [ duData, setDuData ] = useState({});
+  const [ isOpened, setOpenedCard ] = useState(false);
   return(<div className="wrapper">
     <div className="content">
-      <MainPage year={year} />
+      <MainPage isOpened={isOpened} du={du} />
     </div>
-    <Slider value={year} onChange={(ev) => setYear(ev.target.value)} />
+    <Slider
+      onClick={(data) => {
+        setOpenedCard(true);
+        setDuData(data);
+      }}
+      onHover={({ lat, lng }) => !isOpened && setFocusedDu({ lat, lng })}
+      dus={dus}
+    />
+    {isOpened ?
+    (<DuCard onClose={() => setOpenedCard(false)} data={duData} />) : null}
   </div>);
 };
 

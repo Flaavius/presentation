@@ -2,13 +2,32 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: white;
-  width: 100vw;
+  width: 120px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 0px;
-  input {
-    width: 50%;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    li {
+      background: rgba(255,255,255, .5);
+      margin: 10px 0px;
+      padding: 5px 10px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all .2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 2px 2px 4px -2px black;
+      user-select: none;
+      &:hover {
+        background: white;
+        color: var(--primary-color);
+        transform: translateX(20px);
+      }
+    }
   }
 }
