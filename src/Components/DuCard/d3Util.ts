@@ -268,7 +268,7 @@ export const buildGrowthChart = ({
     },
   ];
 
-  const width = 450;
+  const width = 480;
   const paddingLeft = 40;
 
   const scaleX = d3.scaleLinear()
@@ -297,7 +297,7 @@ export const buildGrowthChart = ({
   container.append("g").attr("transform", `translate(${paddingLeft}, 29)`).call(yAxis);
 
   const pred = container.append("rect")
-  .attr("width", 95)
+  .attr("width", 80)
   .attr("height", 200)
   .attr("x", paddingLeft + scaleX(2020))
   .attr("y", 30)
