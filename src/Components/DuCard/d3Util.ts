@@ -200,6 +200,18 @@ export const buildGrowthChart = ({
 
   const lineData = [
     {
+      x: 2000,
+      y: 10,
+    },
+    {
+      x: 2002,
+      y: 35,
+    },
+    {
+      x: 2004,
+      y: 60,
+    },
+    {
       x: 2004,
       y: 60,
     },
@@ -260,7 +272,7 @@ export const buildGrowthChart = ({
   const paddingLeft = 40;
 
   const scaleX = d3.scaleLinear()
-  .domain([2004, 2025])
+  .domain([2000, 2025])
   .range([0, 400]);
 
   const scaleY = d3.scaleLinear()

@@ -50,14 +50,16 @@ export class DuCard extends Component<any, any> {
           <h3>No. of Employees</h3>
           <div id="growth-chart" />
         </div>
-        <div className={style["chart"]}>
-          <h2> Industry </h2>
-          <div id="chart"  />
-        </div>
-        <div className={style["chart-info"]}>
-          <h2> {this.state.key} </h2>
-          <h3> {this.state.key ? "Most Used Technologies" : null }  </h3>
-          <div id="bar-chart" />
+        <div className={style["chart-container"]}>
+          <div className={style["chart"]}>
+            <h2> Industry </h2>
+            <div id="chart"  />
+          </div>
+          <div className={style["chart-info"]}>
+            <h2> {this.state.key} </h2>
+            <h3> {this.state.key ? "Most Used Technologies" : null }  </h3>
+            <div id="bar-chart" />
+          </div>
         </div>
       </div>
     );

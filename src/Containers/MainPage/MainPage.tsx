@@ -34,9 +34,9 @@ export class MainPage extends Component<any, any> {
 
     const world = Globe({ animateIn: true })
     // .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-    .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-    .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+    .globeImageUrl("//unpkg.com/three-globe/example/img/earth-night.jpg")
+    .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
+    .backgroundImageUrl("//unpkg.com/three-globe/example/img/night-sky.png")
     .showGraticules(true)
     .polygonCapColor(() => "#de411b")
     (this.node);
@@ -44,9 +44,9 @@ export class MainPage extends Component<any, any> {
   // custom globe material
     const globeMaterial = world.globeMaterial();
     globeMaterial.bumpScale = 0;
-    new TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
+    new TextureLoader().load("//unpkg.com/three-globe/example/img/earth-water.png", (texture) => {
     globeMaterial.specularMap = texture;
-    globeMaterial.specular = new Color('blue');
+    globeMaterial.specular = new Color("blue");
     globeMaterial.shininess = 5;
   });
 
@@ -74,7 +74,6 @@ export class MainPage extends Component<any, any> {
   }
 
   fade = (coords = [0, 0]) => {
-    console.log("cleck");
     // this.world!.pointOfView({ lat: 44.0176, lng: 22.9880, altitude: 15 }, 1000);
     const camera = this.world?.camera() as PerspectiveCamera;
     camera.position.set(0, 2, 1000);
@@ -91,13 +90,7 @@ export class MainPage extends Component<any, any> {
       });
   }
 
-  componentWillReceiveProps({ du, isOpened }) {
-    // this.world!.polygonAltitude((poly: any) => {
-    //   const { postal } = poly.properties;
-    //   const { employees } = StaticData[postal][year];
-    //   return employees > 0 ? employees / 100 : -.01;
-    // });
-
+  componentWillReceiveProps({ du }) {
     this.world?.pointOfView({ lat: du.lat, lng: du.lng, altitude: .5 }, 500);
   }
 

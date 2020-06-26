@@ -89,6 +89,18 @@
       background: var(--primary-color);
     }
   }
+  .chart-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .wrapper {
+    .chart-container {
+      flex-direction: column;
+    }
+  }
 }
 
 @keyframes fade-in {
