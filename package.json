@@ -7,7 +7,7 @@
     "d3": "^5.16.0",
     "express": "^4.17.1",
     "globe.gl": "^2.11.0",
-    "three": "^0.117.1",
+    "three": "^0.125.0",
     "three-globe": "^2.7.2",
     "three-trackballcontrols": "0.0.8",
     "three-trackballcontrols-ts": "^0.2.1",
